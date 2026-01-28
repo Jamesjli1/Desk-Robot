@@ -1,45 +1,4 @@
-desk_robot/
-├── README.md
-├── requirements.txt
-└── src/
-    ├── main.py
-    ├── config.py
-    │
-    ├── core/
-    │   ├── __init__.py
-    │   ├── events.py          # Event definitions (BUTTON, HAND, VOICE, TICK)
-    │   ├── state_machine.py   # OFF/IDLE/ACTIVE/SLEEP transitions
-    │   ├── context.py         # bundles inputs/outputs/config for skills
-    │   └── robot.py           # main loop: consumes events, calls skills, outputs
-    │
-    ├── drivers/
-    │   ├── __init__.py
-    │   ├── base.py            # interfaces/contracts
-    │   ├── sim/
-    │   │   ├── __init__.py
-    │   │   ├── inputs.py      # keyboard → events
-    │   │   └── outputs.py     # prints
-    │   └── hardware/
-    │       ├── __init__.py
-    │       ├── inputs.py      # GPIO/camera/mic → events (later)
-    │       └── outputs.py     # screen/speaker/led/servo (later)
-    │
-    ├── perception/
-    │   ├── __init__.py
-    │   └── vision.py          # OpenCV hand detection 
-    │
-    ├── ml/
-    │   ├── __init__.py
-    │   └── intent.py          # rule-based now, ML later
-    │
-    ├── skills/
-    │   ├── registry.py    # maps intent/event
-    │   ├── __init__.py
-    │   ├── greet.py
-    │   ├── timer.py
-    │   └── temperature.py
-    │
-    └── tests/
-        ├── test_state_machine.py
-        ├── test_vision.py
-        └── test_intent.py
+memory (storage)
+timer
+music player
+calculator 
