@@ -1,4 +1,30 @@
-memory (storage)
-timer
-music player
-calculator 
+robot/
+│
+├── input/                      # Handles user input (text or voice later)
+│   └── text_input.py           # Gets user text commands and passes to brain
+│
+├── brain/                      # The robot's "thinking" center
+│   ├── interpreter.py          # Converts user input into intents + data
+│   ├── decision_engine.py      # Decides which task or response to run
+│   └── personality.py          # Adds mood, tone, emojis, OpenCV emotes
+│
+├── memory/                     # Stores all robot memory and preferences
+│   └── memory.py               # Stores user mood, last command, high scores, preferences
+│
+├── tasks/                      # All robot actions and “things it can do”
+│   ├── timer.py                # Set countdowns or alarms
+│   ├── time.py                 # Get current system time
+│   ├── music.py                # Play music (local or API)
+│   ├── jokes.py                # Tell jokes
+│   ├── speeches.py             # Give emotional or motivational speeches
+│   ├── tetris.py               # Run Tetris game using pygame
+│   └── flappybird.py           # Run Flappy Bird game using pygame
+│
+├── emotes/                     # Visual expressions of robot emotions
+│   └── emotes.py              # OpenCV emotes based on mood or user actions
+│
+├── errors/                     # Handles errors and unknown inputs
+│   └── recovery.py             # Ask clarification, prevent crashes
+│
+└── main.py                     # Orchestrates the loop: input → logic → task → personality → memory
+
