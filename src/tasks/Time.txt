@@ -1,0 +1,144 @@
+==============================
+ROBOT TIMER SYSTEM ARCHITECTURE
+==============================
+
+OVERVIEW
+--------
+The timer system allows the robot to:
+• Run multiple timers at once
+• Pause, resume, or cancel timers
+• Name timers
+• Save reusable timers in memory
+• Manage timers independently
+
+
+SYSTEM FLOW
+-----------
+User Command
+    ↓
+input/text_input.py
+    ↓
+brain/interpreter.py
+    ↓
+brain/decision_engine.py
+    ↓
+tasks/timer.py
+    ↓
+TimerManager
+    ↓
+NormalTimer instances
+
+
+MODULE LOCATION
+---------------
+tasks/
+└── timer.py
+
+
+CORE COMPONENTS
+---------------
+
+1 TimerManager
+----------------
+Controls all timers.
+
+Responsibilities:
+• Create timers
+• Store active timers
+• Assign timer IDs
+• Pause/resume/cancel timers
+• List timers
+
+Internal structure:
+TimerManager
+    ├── timers dictionary
+    ├── start_timer()
+    ├── pause_timer()
+    ├── resume_timer()
+    ├── cancel_timer()
+    └── list_timers()
+
+
+2 NormalTimer (Individual Timer)
+-----------------------------------
+Each timer runs independently.
+
+Properties:
+- ID
+- Label (optional name)
+- Remaining time
+- State
+- Thread running countdown
+
+Timer FSM states:
+IDLE
+RUNNING
+PAUSED
+FINISHED
+CANCELLED
+
+State transitions:
+RUNNING → PAUSED → RUNNING
+RUNNING → FINISHED
+RUNNING → CANCELLED
+
+
+3 Memory Integration
+----------------------
+Location:
+memory/memory.py
+
+Purpose:
+Stores reusable timers.
+
+Example:
+"study period" = 1500 seconds
+
+Flow:
+Named timer saved
+        ↓
+User requests timer
+        ↓
+Memory lookup
+        ↓
+TimerManager creates timer
+
+
+FULL TIMER FLOW EXAMPLE
+------------------------
+User: "Set timer 25 minutes called study"
+
+Flow:
+Input → Interpreter → Decision Engine
+        ↓
+Memory saves template
+        ↓
+TimerManager creates timer
+        ↓
+NormalTimer starts countdown
+
+
+RESPONSIBILITY SUMMARY
+-----------------------
+main.py
+    Orchestrates program flow.
+
+decision_engine.py
+    Chooses timer action.
+
+timer.py
+    Runs timer system.
+
+memory.py
+    Stores reusable timers.
+
+
+FUTURE EXTENSIONS
+-----------------
+Architecture already supports:
+• Multiple timers
+• Named timers
+• Study sessions
+• UI display
+• Voice notifications
+• Persistent timers
