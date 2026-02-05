@@ -1,7 +1,7 @@
 # Entry point: runs the main robot loop and shows the task menu
 
 # Import task modules
-from tasks.timer import timer
+from tasks.timer import NormalTimer
 from tasks.time import time
 from tasks.music import music
 from tasks.jokes import jokes
@@ -19,9 +19,9 @@ def main():
         print("----------------")
         print("1) Timer")
         print("2) Time")
-        print("3) Music")
-        print("4) Jokes")
-        print("5) Weather")
+        print("3) Weather")
+        print("4) Music")
+        print("5) Jokes")
         print("6) Speeches")
         print("7) coming soon!")
         print("8) Exit")
@@ -32,16 +32,16 @@ def main():
             print("Timer selected (not implemented yet).")
 
         elif choice == "2":
-            print("Time selected (not implemented yet).")
+            time()
 
         elif choice == "3":
-            print("Music selected (not implemented yet).")
+            weather()
 
         elif choice == "4":
-            print("Jokes selected (not implemented yet).")
+            print("Music selected (not implemented yet).")
 
         elif choice == "5":
-            print("Weather selected (not implemented yet).")
+            print("Jokes selected (not implemented yet).")
 
         elif choice == "6":
             print("fart")
