@@ -7,12 +7,76 @@
 import requests
 from urllib.parse import quote # for URL encoding
 
+# Define lat and lon (hard coded for toronto) - later get from ip location
+LAT = 43.7
+LON = -79.4
+
+# Call Openmeteo API to get weather data
+OPENMETEO = "https://api.open-meteo.com/v1/forecast"
+
+# WMO weather codes to descriptions (for openmeteo)
+# Later output this in a friendly format
+WMO_CODE = {
+    0: "Clear sky",
+    1: "Mainly clear",
+    2: "Partly cloudy",
+    3: "Overcast",
+    45: "Fog",
+    48: "Rime fog",
+    51: "Light drizzle",
+    53: "Moderate drizzle",
+    55: "Dense drizzle",
+    61: "Slight rain",
+    63: "Moderate rain",
+    65: "Heavy rain",
+    71: "Slight snow",
+    73: "Moderate snow",
+    75: "Heavy snow",
+    80: "Rain showers (slight)",
+    81: "Rain showers (moderate)",
+    82: "Rain showers (violent)",
+    95: "Thunderstorm",
+    96: "Thunderstorm with slight hail",
+    99: "Thunderstorm with heavy hail",
+}
+
+# Convert WMO code to description
+def code_to_desc(code):
+    return WMO_CODE.get(code, f"Weather code {code}")
+
+# Get weather from openmeteo (not done)
+def get_openmeteo():
+    params = {
+        "latitude": LAT,
+        "longitude": LON,
+        "current_weather": True,
+    }
+
+# Get current weather from openmeteo (not done)
+def current_weather():
+    print("")
+
+# Get today's weather from openmeteo (not done)
+def today_weather():
+    print("")
+
+# Get tomorrow's weather from openmeteo (not done)
+def tomorrow_weather():
+    print("")
+
+# Get week's weather from openmeteo (not done)
+def week_weather():
+    print("")
+
+# Weather with openmeteo (not done)
+# def weather():
+
+# wttr.in weather function (change to openmeteo)
 def weather():
     # Prompt user for city name
     city = input("Enter city: ").strip()
     if not city:
-        print("Please enter a city name.")
-        return
+        city = "Toronto"  # default city if none provided
 
     try:
         # Encode city safely 
