@@ -1,12 +1,12 @@
 # Entry point: runs the main robot loop and shows the task menu
 
 # Import task modules
-from tasks.timer import NormalTimer
+from tasks.timer import NormalTimer # not used
 from tasks.time import time
 from tasks.music import music
-from tasks.jokes import jokes
+from tasks.jokes import jokes # not used
 from tasks.weather import weather
-import tasks.speeches  # farting
+import tasks.speeches # not used
 
 def main():
     print("Hi, I'm your desk robot!")
@@ -26,7 +26,7 @@ def main():
         print("7) coming soon!")
         print("8) Exit")
 
-        choice = input("").strip()
+        choice = input("Select an option: ").strip()
 
         if choice == "1":
             print("Timer selected (not implemented yet).")
@@ -38,7 +38,7 @@ def main():
             weather()
 
         elif choice == "4":
-            print("Music selected (not implemented yet).")
+            music()
 
         elif choice == "5":
             print("Jokes selected (not implemented yet).")

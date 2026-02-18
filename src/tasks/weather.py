@@ -1,4 +1,9 @@
 """ 
+Currently:
+- can get current weather, today's weather, tomorrow's weather, and this week's weather for a hardcoded location (Toronto) using the Openmeteo API
+- can display weather conditions 
+
+Later:
 - later add outputting wmo descriptions into simple language (e.g.  sunny, cloudy, etc.)
 - later add caching for weather data (to avoid too many API calls)
 - later add more weather details (humidity, wind direction, etc.)
@@ -184,14 +189,16 @@ def week_weather(data: dict):
         date = daily_times[i] # Get date for this day
         print(f"   {date}: Max {daily_temps_max[i]}°C, Min {daily_temps_min[i]}°C, {code_to_desc(daily_codes[i])}, Precip: {daily_precip[i]}%")
 
-# Save weather data to JSON file (delete later)
+# Save weather data to JSON file (commented out) until we need it for debugging
+"""
 def save_json(data: dict, filepath: str = "weather.json"):
     # Overwrites the file every time 
     with open(filepath, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2)
+"""
 
 def weather():
-    # code for wttr.in weather
+    # code for wttr.in weather (commented out since we switched to openmeteo)
     """
     # Prompt user for city name
     city = input("Enter city: ").strip()
@@ -233,12 +240,12 @@ def weather():
     print ("2. Today's weather")
     print ("3. Tomorrow's weather")
     print ("4. This week's weather")
-    choice = input("").strip()
+    choice = input("Select an option: ").strip()
 
     # Call functions 
     try:
         data = get_openmeteo() # Get weather data from openmeteo API
-        save_json(data)        # Save raw data to file for debugging
+        # save_json(data)        # (commented out) Save raw data to file for debugging
 
         if choice == "1":
             current_weather(data)
