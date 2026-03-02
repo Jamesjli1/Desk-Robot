@@ -21,4 +21,3 @@ elif emotions_inquiry == "confident":
     print(random.choice(data["Confidence"]))
 else:
     print("I didn't quite understand that boi")
-

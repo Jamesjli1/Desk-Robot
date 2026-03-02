@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import json
 import os
 import time
@@ -15,3 +16,7 @@ if choice in data:
 else:
     print("Invalid choice.")
 
+=======
+def timer():
+    print("Timer function is not implemented yet.")
+>>>>>>> a86452c79f9394bf5ad745bd74251fc2cabda737
