@@ -1,7 +1,7 @@
 # Entry point: runs the main robot loop and shows the task menu
 
 # Import task modules
-from tasks.timer import NormalTimer # not used
+from tasks.timer import timer # not used
 from tasks.time import time
 from tasks.music import music
 from tasks.jokes import jokes # not used

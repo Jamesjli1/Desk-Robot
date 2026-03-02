@@ -9,5 +9,5 @@ file_path = os.path.join(current_dir, "speech.json")
 with open(file_path) as f:
     data = json.load(f)
 
-speech = random.choice(data["study"])
+speech = random.choice(data["Happiness"])
 print(speech)

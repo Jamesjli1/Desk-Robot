@@ -7,7 +7,6 @@ Currently:
 - can show what's currently playing
 
 Later:
-- add volume control
 - add show queue
 - add more search options (like search by artist, album, playlist, etc.)
 - add 3 results for each search instead of just 1 for more accurate searching
@@ -141,7 +140,8 @@ def music ():
         print("4. Previous Song")
         print("5. Add to Queue")
         print("6. What's Playing Now?")
-        print("7. Exit Music Mode")
+        print("7. Set Volume")
+        print("8. Exit Music Mode")
         
         choice = input("Select an option: ").strip()
 
@@ -181,6 +181,14 @@ def music ():
                     print("Nothing is playing right now")
             
             elif choice == '7':
+                volume = input("Set volume (0-100): ").strip()
+                if volume.isdigit() and 0 <= int(volume) <= 100:
+                    sp.volume(int(volume), device_id=device_id)
+                    print(f"Volume set to {volume}%")
+                else:
+                    print("Invalid volume. Please enter a number between 0 and 100.")
+
+            elif choice == '8':
                 print("Exiting Music Menu...")
                 break
                 
