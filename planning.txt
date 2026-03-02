@@ -17,8 +17,9 @@ robot/
 │   ├── music.py                # Play music (local or API)
 │   ├── jokes.py                # Tell jokes
 │   ├── speeches.py             # Give emotional or motivational speeches
-│   ├── tetris.py               # Run Tetris game using pygame
-│   └── flappybird.py           # Run Flappy Bird game using pygame
+│   ├── Games                    
+│         └── Tetris           # Run Tetris game using pygame
+|         └── Flappy           # Run Flappy Bird game using pygame
 │
 ├── emotes/                     # Visual expressions of robot emotions
 │   └── emotes.py              # OpenCV emotes based on mood or user actions
